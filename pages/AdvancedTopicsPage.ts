@@ -25,6 +25,7 @@ export class AdvancedTopicsPage {
 
     //Get star rating value from locator
     async getStarRatingValue(locator: Locator): Promise<string> {
+        await locator.waitFor({state: 'visible'});
         return await locator.evaluate(el => 
             window.getComputedStyle(el, '::after').content);
     }

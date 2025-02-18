@@ -6,4 +6,4 @@ test('Verify book rating submission displays Well done message', async ({advance
     await advancedTopicsPage.checkRatingButton.click();
     await expect(advancedTopicsPage.wellDoneLabel).toBeVisible();
     await expect(advancedTopicsPage.wellDoneLabel).toHaveText('Well done!');
-})
+});
