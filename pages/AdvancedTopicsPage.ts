@@ -30,6 +30,7 @@ export class AdvancedTopicsPage {
             window.getComputedStyle(el, '::after').content);
     }
 
+    //Set star rating value after getting it from locator
     async setStarRatingValue(locator: Locator): Promise<void> {
         //getting the star rating value
         const starRatingRawValue = await this.getStarRatingValue(locator);
