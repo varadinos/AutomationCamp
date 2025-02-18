@@ -25,7 +25,7 @@ export class AdvancedTopicsPage {
 
     //Get star rating value from locator
     async getStarRatingValue(locator: Locator): Promise<string> {
-        await locator.waitFor({state: 'visible'});
+        //await locator.waitFor({state: 'visible'});
         return await locator.evaluate(el => 
             window.getComputedStyle(el, '::after').content);
     }
@@ -37,7 +37,7 @@ export class AdvancedTopicsPage {
         const cleanStarRatingValue = starRatingRawValue.replace(/['"]/g, "");
     
         let starRatingValue = cleanStarRatingValue;
-        await this.ratingTxtField.waitFor({ state: 'visible' }); // Ensure it's visible
+        //await this.ratingTxtField.waitFor({ state: 'visible' }); // Ensure it's visible
         await this.ratingTxtField.fill(starRatingValue);
     }
     

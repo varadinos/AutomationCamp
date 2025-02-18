@@ -31,7 +31,9 @@ export const test = base.extend<Fixtures>({
 
     advancedTopicsPage: async ({page}, use) => {
         const advancedTopicsPage = new AdvancedTopicsPage(page);
-        advancedTopicsPage.goTo();
+        await advancedTopicsPage.goTo();
+        await page.waitForLoadState('load'); // Wait for all resources to load
+        await page.waitForLoadState('networkidle'); // Ensure no ongoing requests
         await use(advancedTopicsPage);
     }
 })
