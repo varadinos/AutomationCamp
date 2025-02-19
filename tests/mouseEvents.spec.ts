@@ -27,3 +27,11 @@ test('Drag and drop element', async ({mouseEventsPage}) => {
     await mouseEventsPage.dragElement.dragTo(mouseEventsPage.dropArea);
     await expect(mouseEventsPage.dropMessage).toBeVisible();
 })
+
+test('Manually drag and drop element', async ({mouseEventsPage, page}) => {
+    await mouseEventsPage.dragElement.hover();
+    await page.mouse.down();
+    await mouseEventsPage.dropArea.hover();
+    await page.mouse.up();
+    await expect(mouseEventsPage.dropMessage).toBeVisible();
+})
