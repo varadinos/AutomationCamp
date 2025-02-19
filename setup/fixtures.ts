@@ -4,11 +4,13 @@ import playwright from 'playwright';
 import { HomePage } from '../pages/HomePage';
 import { AdvancedTopicsPage } from '../pages/AdvancedTopicsPage';
 import { MouseEventsPage } from '../pages/MouseEventsPage';
+import { FrameInteractionsPage } from '../pages/FrameInteractionsPage';
 
 type Fixtures = {
     homePage: HomePage;
     advancedTopicsPage: AdvancedTopicsPage;
     mouseEventsPage: MouseEventsPage;
+    frameInteractionsPage: FrameInteractionsPage;
 };
 
 export const test = base.extend<Fixtures>({
@@ -44,7 +46,15 @@ export const test = base.extend<Fixtures>({
         await mouseEventsPage.goTo();
         await page.waitForLoadState('networkidle');
         await use(mouseEventsPage);
+    },
+    
+    frameInteractionsPage: async({page}, use) => {
+        const frameInteractionsPage = new FrameInteractionsPage(page);
+        await frameInteractionsPage.goTo();
+        await page.waitForLoadState('networkidle');
+        await use(frameInteractionsPage);
     }
+
 })
 
 export { expect } from '@playwright/test';

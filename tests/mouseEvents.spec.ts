@@ -1,9 +1,9 @@
 import { expect, test } from "../setup/fixtures";
 
 test('Click specific x/y location', async ({mouseEventsPage}) => {
-    await mouseEventsPage.mouseOperationsArea.click({position: {x: 475, y: 32}});
+    await mouseEventsPage.mouseOperationsArea.click({position: {x: 475, y: 32.5}});
     await expect(mouseEventsPage.clickLocationLeft).toHaveText('Left: 475');
-    await expect(mouseEventsPage.clickLocationRight).toHaveText('Top: 31');
+    await expect(mouseEventsPage.clickLocationRight).toHaveText('Top: 32');
     await expect(mouseEventsPage.mouseOperation).toHaveText('Click');
 })
 
