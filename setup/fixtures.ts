@@ -3,10 +3,12 @@ import playwright from 'playwright';
 
 import { HomePage } from '../pages/HomePage';
 import { AdvancedTopicsPage } from '../pages/AdvancedTopicsPage';
+import { MouseEventsPage } from '../pages/MouseEventsPage';
 
 type Fixtures = {
     homePage: HomePage;
     advancedTopicsPage: AdvancedTopicsPage;
+    mouseEventsPage: MouseEventsPage;
 };
 
 export const test = base.extend<Fixtures>({
@@ -35,6 +37,13 @@ export const test = base.extend<Fixtures>({
         await page.waitForLoadState('load'); // Wait for all resources to load
         await page.waitForLoadState('networkidle'); // Ensure no ongoing requests
         await use(advancedTopicsPage);
+    },
+
+    mouseEventsPage: async ({page}, use) => {
+        const mouseEventsPage = new MouseEventsPage(page);
+        await mouseEventsPage.goTo();
+        await page.waitForLoadState('networkidle');
+        await use(mouseEventsPage);
     }
 })
 
