@@ -5,12 +5,14 @@ import { HomePage } from '../pages/HomePage';
 import { AdvancedTopicsPage } from '../pages/AdvancedTopicsPage';
 import { MouseEventsPage } from '../pages/MouseEventsPage';
 import { FrameInteractionsPage } from '../pages/FrameInteractionsPage';
+import { WaitConditionsPage } from '../pages/WaitConditionsPage';
 
 type Fixtures = {
     homePage: HomePage;
     advancedTopicsPage: AdvancedTopicsPage;
     mouseEventsPage: MouseEventsPage;
     frameInteractionsPage: FrameInteractionsPage;
+    waitConditionsPage: WaitConditionsPage;
 };
 
 export const test = base.extend<Fixtures>({
@@ -53,6 +55,13 @@ export const test = base.extend<Fixtures>({
         await frameInteractionsPage.goTo();
         await page.waitForLoadState('networkidle');
         await use(frameInteractionsPage);
+    },
+
+    waitConditionsPage: async({page}, use) => {
+        const waitConditionsPage = new WaitConditionsPage(page);
+        await waitConditionsPage.goTo();
+        await page.waitForLoadState('networkidle');
+        await use(waitConditionsPage);
     }
 
 })
