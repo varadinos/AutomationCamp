@@ -1,7 +1,7 @@
 import { test, expect } from '../setup/fixtures';
 import { PerformanceHelper } from '../utils/PerformanceHelper';
 
-test('Measure Largest Contentful Paint (LCP)', async ({ advancedTopicsPage, page }, testInfo) => {
+test('Measure LCP and verify it is within the desired threshold', async ({ advancedTopicsPage, page }, testInfo) => {
   // Measure Largest Contentful Paint (LCP) using the helper class
   const largestContentfulPaint = await PerformanceHelper.measureLCP(page);
 

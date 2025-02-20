@@ -1,7 +1,6 @@
 import { test, expect } from '../setup/fixtures';
-import { AdvancedTopicsPage } from "../pages/AdvancedTopicsPage";
 
-test('Verify book rating submission displays Well done message', async ({advancedTopicsPage}) => {
+test('Submit book rating and verify "Well done!" message is displayed', async ({advancedTopicsPage}) => {
     await advancedTopicsPage.setStarRatingValue(advancedTopicsPage.starRating);
     await advancedTopicsPage.checkRatingButton.click();
     await expect(advancedTopicsPage.wellDoneLabel).toBeVisible();
