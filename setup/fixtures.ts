@@ -31,7 +31,10 @@ export const test = base.extend<Fixtures>({
       },
 
     homePage: async ({page}, use) => {
-        const homePage = new HomePage();
+        const homePage = new HomePage(page);
+        await homePage.goTo();
+        await page.waitForLoadState('load'); // Wait for all resources to load
+        await page.waitForLoadState('networkidle'); // Ensure no ongoing requests
         await use(homePage);
     },
 
