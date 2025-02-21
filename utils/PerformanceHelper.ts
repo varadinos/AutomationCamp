@@ -1,4 +1,4 @@
-//Helper class to mesure LCP load time
+//Helper function to mesure LCP load time
 
 export class PerformanceHelper {
   static async measureLCP(page): Promise<number> {

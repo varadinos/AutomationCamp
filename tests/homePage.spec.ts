@@ -14,7 +14,7 @@ test('Validate all links on the Home page return a successful response', async (
             expect.soft(null, `${url} has no green status code`).toBeTruthy()
           }
     }
-
+    //Attach txt file with all checked links into Playwright report
     testInfo.attach("checked-links.txt", {
         body: Array.from(linkUrls).join("\n"),
       })
