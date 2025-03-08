@@ -7,6 +7,11 @@ export class WaitConditionsPage {
     readonly visibilityTargetButton: Locator;
     readonly visibilityPopoverHeader: Locator;
     readonly visibilityPopoverBody: Locator;
+    readonly alertButton: Locator;
+    readonly promptButton: Locator;
+    readonly alertHandled: Locator;
+    readonly promptOkResponse: Locator;
+    readonly promptCancelledResponse: Locator;
 
 
     constructor (page: Page) {
@@ -16,6 +21,11 @@ export class WaitConditionsPage {
         this.visibilityTargetButton = page.locator('#visibility_target');
         this.visibilityPopoverHeader = page.getByRole('heading', { name: 'Can you see me?' });
         this.visibilityPopoverBody = page.getByText('I just removed my invisibility cloak!!');
+        this.alertButton = page.getByRole('button', {name: 'Show Alert'});
+        this.promptButton = page.getByRole('button', {name: 'Show Prompt'});
+        this.alertHandled = page.getByText('Alert handled');
+        this.promptOkResponse = page.getByRole('heading', { name: 'Confirm response: OK' });
+        this.promptCancelledResponse = page.getByRole('heading', { name: 'Confirm response: Cancelled' });
     }
 
     async goTo(): Promise<void> {
