@@ -141,4 +141,6 @@ This project was created by **Stoyan Varadinov (varadinos)**. Feel free to use a
 
 **Stoyan Varadinov**  
 [GitHub Profile](https://github.com/varadinos)
+![Playwright Tests](https://github.com/varadinos/AutomationCamp/actions/workflows/playwright-tests.yml/badge.svg)
+
 
