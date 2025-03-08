@@ -9,6 +9,7 @@ import { WaitConditionsPage } from '../pages/WaitConditionsPage';
 import { LoginPage } from '../pages/LoginPage';
 import { OrderSubmitPage } from '../pages/OrderSubmitPage';
 import { FormsInteractionsPage } from '../pages/FormsInteractionsPage';
+import { MultipleWindowsPage } from '../pages/MultipleWindowsPage';
 
 type Fixtures = {
     homePage: HomePage;
@@ -19,11 +20,12 @@ type Fixtures = {
     loginPage: LoginPage;
     orderSubmitPage: OrderSubmitPage;
     formsInteractionsPage: FormsInteractionsPage;
+    multipleWindowsPage: MultipleWindowsPage;
 };
 
 export const test = base.extend<Fixtures>({
     browser: async ({}, use) => {
-        const browser = await playwright.chromium.launch({ headless: true, args: ['--start-maximized'] }); // For example, run with UI
+        const browser = await playwright.chromium.launch({ headless: false, args: ['--start-maximized'] }); // For example, run with UI
         await use(browser);
         await browser.close();
       },
@@ -92,6 +94,13 @@ export const test = base.extend<Fixtures>({
         await formsInteractionsPage.goTo();
         await page.waitForLoadState('networkidle');
         await use(formsInteractionsPage);
+    },
+
+    multipleWindowsPage: async({page}, use) => {
+        const multipleWindowsPage = new MultipleWindowsPage(page);
+        await multipleWindowsPage.goTo();
+        await page.waitForLoadState('networkidle');
+        await use(multipleWindowsPage);
     }
     
 
