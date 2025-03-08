@@ -23,7 +23,7 @@ type Fixtures = {
 
 export const test = base.extend<Fixtures>({
     browser: async ({}, use) => {
-        const browser = await playwright.chromium.launch({ headless: false, args: ['--start-maximized'] }); // For example, run with UI
+        const browser = await playwright.chromium.launch({ headless: true, args: ['--start-maximized'] }); // For example, run with UI
         await use(browser);
         await browser.close();
       },
