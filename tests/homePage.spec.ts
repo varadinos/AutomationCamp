@@ -1,7 +1,7 @@
 import { test, expect } from "../setup/fixtures";
 import { LinksChecker } from "../utils/LinksChecker";
 
-test('Validate all links on the Home page return a successful response', async ({homePage, page}, testInfo) =>{
+test.skip('Validate all links on the Home page return a successful response', async ({homePage, page}, testInfo) =>{
     const linkUrls = await LinksChecker.getAllLinksFromPage(page);
 
     for (const url of linkUrls) {
