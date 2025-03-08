@@ -31,7 +31,7 @@ export class MouseEventsPage {
     }
 
     async goTo(): Promise<void> {
-        this.page.goto(this.url);
+        await this.page.goto(this.url);
     }
 
 }

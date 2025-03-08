@@ -6,6 +6,8 @@ import { AdvancedTopicsPage } from '../pages/AdvancedTopicsPage';
 import { MouseEventsPage } from '../pages/MouseEventsPage';
 import { FrameInteractionsPage } from '../pages/FrameInteractionsPage';
 import { WaitConditionsPage } from '../pages/WaitConditionsPage';
+import { LoginPage } from '../pages/LoginPage';
+import { OrderSubmitPage } from '../pages/OrderSubmitPage';
 
 type Fixtures = {
     homePage: HomePage;
@@ -13,6 +15,8 @@ type Fixtures = {
     mouseEventsPage: MouseEventsPage;
     frameInteractionsPage: FrameInteractionsPage;
     waitConditionsPage: WaitConditionsPage;
+    loginPage: LoginPage;
+    orderSubmitPage: OrderSubmitPage;
 };
 
 export const test = base.extend<Fixtures>({
@@ -65,7 +69,22 @@ export const test = base.extend<Fixtures>({
         await waitConditionsPage.goTo();
         await page.waitForLoadState('networkidle');
         await use(waitConditionsPage);
-    }
+    },
+
+    loginPage: async({page}, use) => {
+        const loginPage = new LoginPage(page);
+        await loginPage.goTo();
+        await page.waitForLoadState('networkidle');
+        await use(loginPage);   
+    },
+
+    orderSubmitPage: async({page}, use) => {
+        const orderSubmitPage = new OrderSubmitPage(page);
+        await orderSubmitPage.goTo();
+        await page.waitForLoadState('networkidle');
+        await use(orderSubmitPage);
+    },
+    
 
 })
 
