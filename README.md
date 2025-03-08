@@ -1,3 +1,6 @@
+![Playwright Tests](https://github.com/varadinos/AutomationCamp/actions/workflows/playwright-tests.yml/badge.svg)
+
+
 # POM Playwright with TypeScript - Automation Project
 
 ## Overview
@@ -141,6 +144,5 @@ This project was created by **Stoyan Varadinov (varadinos)**. Feel free to use a
 
 **Stoyan Varadinov**  
 [GitHub Profile](https://github.com/varadinos)
-![Playwright Tests](https://github.com/varadinos/AutomationCamp/actions/workflows/playwright-tests.yml/badge.svg)
 
 
