@@ -15,7 +15,7 @@ export class FrameInteractionsPage {
 
     constructor (page: Page){
         this.page = page;
-        this.url = 'https://play1.automationcamp.ir/frames.html';
+        this.url = '/frames.html';
         this.frameOne = page.frameLocator('#frame1');
         this.frameTwo = this.frameOne.frameLocator('#frame2')
         this.frameThree = this.frameOne.frameLocator('#frame3')

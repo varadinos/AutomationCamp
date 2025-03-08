@@ -14,7 +14,7 @@ export class AdvancedTopicsPage {
         this.ratingTxtField = page.locator('#txt_rating');
         this.checkRatingButton = page.getByRole('button', { name: 'Check Rating' });
         this.wellDoneLabel = page.getByText('Well done!', { exact: true });
-        this.url = 'https://play1.automationcamp.ir/advanced.html';
+        this.url = '/advanced.html';
     }
 
 

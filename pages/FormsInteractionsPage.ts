@@ -13,7 +13,7 @@ export class FormsInteractionsPage {
 
     constructor (page: Page) {
         this.page = page;
-        this.url = 'https://play1.automationcamp.ir/forms.html';
+        this.url = '/forms.html';
         this.singleUploadButton = page.locator('#upload_cv');
         this.multipleUploadButton = page.locator('#upload_files');
         this.validateSingleUpload = page.locator('#validate_cv');

@@ -16,7 +16,7 @@ export class WaitConditionsPage {
 
     constructor (page: Page) {
         this.page = page;
-        this.url = 'https://play1.automationcamp.ir/expected_conditions.html';
+        this.url = '/expected_conditions.html';
         this.visibilityTriggerButton = page.locator('#visibility_trigger');
         this.visibilityTargetButton = page.locator('#visibility_target');
         this.visibilityPopoverHeader = page.getByRole('heading', { name: 'Can you see me?' });

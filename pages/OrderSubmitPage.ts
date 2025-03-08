@@ -21,7 +21,7 @@ export class OrderSubmitPage {
 
     constructor (page: Page) {
         this.page = page;
-        this.url = 'https://play1.automationcamp.ir/order_submit.html';
+        this.url = '/order_submit.html';
         this.pizzaPicture = page.getByRole('img', { name: 'Pizza' });
         this.largeRadioButton = page.getByLabel('Large');
         this.mediumRadioButton = page.locator('#rad_medium');

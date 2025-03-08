@@ -16,7 +16,7 @@ export class MouseEventsPage {
 
     constructor (page: Page) {
         this.page = page;
-        this.url = 'https://play1.automationcamp.ir/mouse_events.html'
+        this.url = '/mouse_events.html'
         this.mouseOperationsArea = page.getByText('Perform mouse operations here');
         this.mouseOperation = page.locator('#click_type');
         this.clickLocationLeft = page.locator('#click_x');

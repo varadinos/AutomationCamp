@@ -13,7 +13,7 @@ export class LoginPage {
 
     constructor (page: Page) {
         this.page = page;
-        this.url = 'https://play1.automationcamp.ir/login.html';
+        this.url = '/login.html';
         this.usernameInput = page.getByPlaceholder("Username");
         this.passwordInput = page.getByPlaceholder("Password");
         this.logInButton = page.getByRole('button', { name: 'Log in' });

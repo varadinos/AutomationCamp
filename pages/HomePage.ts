@@ -6,7 +6,7 @@ export class HomePage {
 
     constructor (page: Page) {
         this.page = page;
-        this.url = 'https://play1.automationcamp.ir/index.html';
+        this.url = "/index.html"
     }
 
     async goTo(): Promise<void> {
