@@ -54,7 +54,7 @@ export class OrderSubmitPage {
         if (!pizzaTestData.pizzaFlavors.includes(flavor)) throw new Error(`Invalid flavor: ${flavor}`);
         if (!pizzaTestData.sauces.includes(sauce)) throw new Error(`Invalid sauce: ${sauce}`);
         toppings.forEach(topping => {
-            if (!pizzaTestData.toppings.includes(topping)) throw new Error(`Invalid topping: ${topping}`);
+        if (!pizzaTestData.toppings.includes(topping)) throw new Error(`Invalid topping: ${topping}`);
         });
 
         // Select pizza size
