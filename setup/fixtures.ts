@@ -8,6 +8,7 @@ import { FrameInteractionsPage } from '../pages/FrameInteractionsPage';
 import { WaitConditionsPage } from '../pages/WaitConditionsPage';
 import { LoginPage } from '../pages/LoginPage';
 import { OrderSubmitPage } from '../pages/OrderSubmitPage';
+import { FormsInteractionsPage } from '../pages/FormsInteractionsPage';
 
 type Fixtures = {
     homePage: HomePage;
@@ -17,6 +18,7 @@ type Fixtures = {
     waitConditionsPage: WaitConditionsPage;
     loginPage: LoginPage;
     orderSubmitPage: OrderSubmitPage;
+    formsInteractionsPage: FormsInteractionsPage;
 };
 
 export const test = base.extend<Fixtures>({
@@ -84,6 +86,13 @@ export const test = base.extend<Fixtures>({
         await page.waitForLoadState('networkidle');
         await use(orderSubmitPage);
     },
+
+    formsInteractionsPage: async({page}, use) => {
+        const formsInteractionsPage = new FormsInteractionsPage(page);
+        await formsInteractionsPage.goTo();
+        await page.waitForLoadState('networkidle');
+        await use(formsInteractionsPage);
+    }
     
 
 })
