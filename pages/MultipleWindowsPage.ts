@@ -5,16 +5,12 @@ export class MultipleWindowsPage {
     readonly url: string;
     readonly openNewWindow1: Locator;
     readonly openNewWindow2: Locator;
-    readonly clickMe2Button: Locator;
-    readonly clickMe4Button: Locator;
 
     constructor (page: Page) {
         this.page = page;
         this.url = "/multi_window.html"
         this.openNewWindow1 = page.getByRole('link', { name: 'Open New Window 1' });
         this.openNewWindow2 = page.getByRole('link', { name: 'Open New Window 2' });
-        this.clickMe2Button = page.locator('#click_me_2');
-        this.clickMe4Button = page.getByRole('button', { name: 'Click Me 4' });
     }
 
     async goTo(): Promise<void> {
