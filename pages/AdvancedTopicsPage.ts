@@ -1,4 +1,4 @@
-import { type Locator, type Page } from '@playwright/test';
+import { type Locator, type Page, expect } from '@playwright/test';
 
 export class AdvancedTopicsPage {
     readonly page: Page;
@@ -17,29 +17,38 @@ export class AdvancedTopicsPage {
         this.url = '/advanced.html';
     }
 
-
-    //Go to Advanced Topics page
+    // Navigate to Advanced Topics page
     async goTo(): Promise<void> {
         await this.page.goto(this.url);
     }
 
-    //Get star rating value from locator
-    async getStarRatingValue(locator: Locator): Promise<string> {
-        //await locator.waitFor({state: 'visible'});
-        return await locator.evaluate(el => 
-            window.getComputedStyle(el, '::after').content);
+    // Retrieve the star rating value
+    private async getStarRatingValue(): Promise<string> {
+        await this.starRating.waitFor({ state: 'visible' });
+
+        const starRatingRawValue = await this.starRating.evaluate(el => 
+            window.getComputedStyle(el, '::after').content || '');
+
+        return starRatingRawValue.replace(/['"]/g, "").trim();
     }
 
-    //Set star rating value after getting it from locator
-    async setStarRatingValue(locator: Locator): Promise<void> {
-        //getting the star rating value
-        const starRatingRawValue = await this.getStarRatingValue(locator);
-        //removing quotes from the value
-        const cleanStarRatingValue = starRatingRawValue.replace(/['"]/g, "");
-    
-        let starRatingValue = cleanStarRatingValue;
-        //await this.ratingTxtField.waitFor({ state: 'visible' }); // Ensure it's visible
+    // Set star rating value in input field
+    async setStarRatingValue(): Promise<void> {
+        const starRatingValue = await this.getStarRatingValue();
+        await this.ratingTxtField.waitFor({ state: 'visible' });
         await this.ratingTxtField.fill(starRatingValue);
     }
-    
+
+    // Submit rating
+    async submitRating(): Promise<void> {
+        await this.checkRatingButton.waitFor({ state: 'visible' });
+        await this.checkRatingButton.click();
+    }
+
+    // Verify "Well done!" message is displayed
+    async verifySuccessMessage(): Promise<void> {
+        await expect(this.wellDoneLabel).toBeVisible();
+        await expect(this.wellDoneLabel).toHaveText('Well done!');
+    }
+
 }
